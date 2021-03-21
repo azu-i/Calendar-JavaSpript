@@ -7,17 +7,17 @@ function generate_year_range(start, end) {
 }
 
 var today = new Date();
-var currentMonth = today.getMonth();
 var currentYear = today.getFullYear();
+var currentMonth = today.getMonth();
+var currentDay = today.getDay();
 var selectYear = document.getElementById("year");
 var selectMonth = document.getElementById("month");
 
-var createYear = generate_year_range(1970, 2200);
+var createYear = generate_year_range(1980, 2080);
 
 document.getElementById("year").innerHTML = createYear;
 
 var calendar = document.getElementById("calendar");
-var lang = calendar.getAttribute('data-lang');
 
 var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 var days = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
@@ -32,6 +32,11 @@ document.getElementById("thead-month").innerHTML = dayHeader;
 
 monthAndYear = document.getElementById("monthAndYear");
 showCalendar(currentMonth, currentYear);
+
+function today(){
+  showCalendar(currentMonth, currentYear);
+
+}
 
 function next() {
   currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
@@ -86,7 +91,7 @@ function showCalendar(month, year) {
         cell.innerHTML = "<span>" + date + "</span>";
 
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-          cell.className = "date-picker selected";
+          cell.className = "today";
         }
         row.appendChild(cell);
         date++;
