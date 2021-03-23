@@ -1,3 +1,34 @@
+window.addEventListener("load", function () {
+  //  console.log('ああああ');
+  var today = new Date();
+  var currentYear = today.getFullYear();
+  var currentMonth = today.getMonth();
+  var currentDay = today.getDay();
+
+
+  var createYear = generate_year_range(1980, 2080);
+
+  document.getElementById("year").innerHTML = createYear;
+
+  var calendar = document.getElementById("calendar");
+
+
+  var days = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
+
+  var dayHeader = "<tr>";
+  for (day in days) {
+    dayHeader += "<th data-days='" + days[day] + "'>" + days[day] + "</th>";
+  }
+  dayHeader += "</tr>";
+
+  document.getElementById("thead-month").innerHTML = dayHeader;
+
+  monthAndYear = document.getElementById("monthAndYear");
+  showCalendar(currentMonth, currentYear);
+
+
+})
+
 function generate_year_range(start, end) {
   var years = "";
   for (var year = start; year <= end; year++) {
@@ -6,58 +37,46 @@ function generate_year_range(start, end) {
   return years;
 }
 
-var today = new Date();
-var currentYear = today.getFullYear();
-var currentMonth = today.getMonth();
-var currentDay = today.getDay();
-var selectYear = document.getElementById("year");
-var selectMonth = document.getElementById("month");
-
-var createYear = generate_year_range(1980, 2080);
-
-document.getElementById("year").innerHTML = createYear;
-
-var calendar = document.getElementById("calendar");
-
-var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-var days = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
-
-var dayHeader = "<tr>";
-for (day in days) {
-  dayHeader += "<th data-days='" + days[day] + "'>" + days[day] + "</th>";
-}
-dayHeader += "</tr>";
-
-document.getElementById("thead-month").innerHTML = dayHeader;
-
-monthAndYear = document.getElementById("monthAndYear");
-showCalendar(currentMonth, currentYear);
-
-function today(){
+function today() {
+  var today = new Date();
+  var currentYear = today.getFullYear();
+  var currentMonth = today.getMonth();
   showCalendar(currentMonth, currentYear);
-
 }
 
 function next() {
-  currentYear = (currentMonth === 11) ? currentYear + 1 : currentYear;
-  currentMonth = (currentMonth + 1) % 12;
+  var selectYear = document.getElementById("year");
+  var selectMonth = document.getElementById("month");
+  selectYear = parseInt(selectYear.value);
+  selectMonth = parseInt(selectMonth.value);
+  var currentYear = (selectMonth === 11) ? selectYear + 1 : selectYear;
+  var currentMonth = (selectMonth + 1) % 12;
   showCalendar(currentMonth, currentYear);
 }
 
 function previous() {
-  currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-  currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+  var selectYear = document.getElementById("year");
+  var selectMonth = document.getElementById("month");
+  selectYear = parseInt(selectYear.value);
+  selectMonth = parseInt(selectMonth.value);
+  var currentYear = (selectMonth === 0) ? selectYear - 1 : selectYear;
+  var currentMonth = (selectMonth === 0) ? 11 : selectMonth - 1;
   showCalendar(currentMonth, currentYear);
 }
 
 function jump() {
+  var selectYear = document.getElementById("year");
+  var selectMonth = document.getElementById("month");
   currentYear = parseInt(selectYear.value);
   currentMonth = parseInt(selectMonth.value);
   showCalendar(currentMonth, currentYear);
 }
 
 function showCalendar(month, year) {
-
+  var today = new Date();
+  var selectYear = document.getElementById("year");
+  var selectMonth = document.getElementById("month");
+  var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   var firstDay = (new Date(year, month)).getDay();
 
   tbl = document.getElementById("calendar-body");
@@ -89,7 +108,6 @@ function showCalendar(month, year) {
         cell.setAttribute("data-month_name", months[month]);
         cell.className = "date-picker";
         cell.innerHTML = "<span>" + date + "</span>";
-
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
           cell.className = "today";
         }
@@ -104,5 +122,5 @@ function showCalendar(month, year) {
 }
 
 function daysInMonth(iMonth, iYear) {
-  return 32 - new Date(iYear, iMonth, 32).getDate();
+  return  new Date(iYear, iMonth+1, 0).getDate();
 }
