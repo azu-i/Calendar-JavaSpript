@@ -15,6 +15,15 @@
   border-radius: 3px;
   padding: 5px 20px;
 }
+
+.button-today button{
+  display: inline-block;
+  background: #666666;
+  color:#ffffff;
+  border: 1px solid #666666;
+  border-radius: 3px;
+  padding: 5px 20px; 
+}
 .table-calendar {
   border-collapse: collapse;
   width: 100%;
@@ -34,11 +43,11 @@
 .date-picker.selected span {
   border-bottom: 2px solid currentColor;
 }
-/* 日曜 */
+/* 日曜日 */
 .date-picker:nth-child(1) {
 color: red;
 }
-/* 土曜 */
+/* 土曜日 */
 .date-picker:nth-child(7) {
 color: blue;
 }

@@ -1,17 +1,11 @@
 window.addEventListener("load", function () {
-  //  console.log('ああああ');
   var today = new Date();
   var currentYear = today.getFullYear();
   var currentMonth = today.getMonth();
-  var currentDay = today.getDay();
-
-
+  
   var createYear = generate_year_range(1980, 2080);
 
   document.getElementById("year").innerHTML = createYear;
-
-  var calendar = document.getElementById("calendar");
-
 
   var days = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
 
@@ -121,6 +115,7 @@ function showCalendar(month, year) {
 
 }
 
+//月の日数
 function daysInMonth(iMonth, iYear) {
   return  new Date(iYear, iMonth+1, 0).getDate();
 }
