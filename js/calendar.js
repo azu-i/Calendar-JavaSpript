@@ -19,8 +19,6 @@ window.addEventListener("load", function () {
 
   monthAndYear = document.getElementById("monthAndYear");
   showCalendar(currentMonth, currentYear);
-
-
 })
 
 function generate_year_range(start, end) {
@@ -101,8 +99,8 @@ function showCalendar(month, year) {
         cell.setAttribute("data-year", year);
         cell.setAttribute("data-month_name", months[month]);
         cell.className = "date-picker";
+        cell.innerHTML = "<span><a href='add_plan.php'>"+ date + "</a></span>";
         // cell.innerHTML = "<span>" + date + "</span>";
-        cell.innerHTML = "<a href='addPlan.html'>" + date + "</a>";
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
           cell.className = "today";
         }
@@ -119,4 +117,9 @@ function showCalendar(month, year) {
 //月の日数
 function daysInMonth(iMonth, iYear) {
   return  new Date(iYear, iMonth+1, 0).getDate();
+}
+
+function showDay()
+{
+  console.log(day);
 }
