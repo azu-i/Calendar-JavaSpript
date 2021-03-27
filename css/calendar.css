@@ -30,12 +30,12 @@
 }
 .table-calendar th,
 .table-calendar td{
-  text-decoration: none;
   padding: 10px;
   border: 1px solid #e2e2e2;
   text-align: center;
   vertical-align: top;
 }
+
 .today {
   font-weight: bold;
   color: #fff;

@@ -1,3 +1,34 @@
+.wrapper{
+  margin: 0 auto;
+  max-width: 700px;
+}
 .container-text{
   text-align: center;
+}
+
+.button-container-plan{
+  text-align: center;
+}
+
+.table-plan{
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.table-plan th,
+.table-plan td{
+  border:2px solid #666666;
+  text-align: center;
+}
+.table-plan th{
+  padding: 5px;
+}
+.table-plan td{
+   padding: 10px;
+}
+
+.link_calendar a{
+  text-decoration:none;
 }
