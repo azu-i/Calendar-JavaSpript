@@ -22,4 +22,11 @@ class Dao
   {
     return $this->pdo->query("INSERT INTO `plan`(`date`, `time`, `plan_name`) VALUES('$date', '$time', '$plan_name')");
   }
+
+  public function findAll(): array
+  {
+    $st = $this->pdo()->query("SELECT * FROM plan");
+    $plans = $st->fetchAll(PDO::FETCH_ASSOC);
+    return $plans;
+  }
 }

@@ -24,11 +24,14 @@
 }
 .table-plan th{
   padding: 5px;
+  background-color: #ddc9c6;
 }
 .table-plan td{
    padding: 10px;
 }
 
-.link_calendar a{
-  text-decoration:none;
+.link-calendar{
+  padding: 20px 50px;
 }
+
+
