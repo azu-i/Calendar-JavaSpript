@@ -14,10 +14,11 @@
   <div class="container-text">
     <h2>予定登録 - 時間指定</h2>
   </div>
-  <div class="button-container-plan">
+  <div class="button-container">
     <h4><?php echo $selected_date ?></h4>
+    <p>予定を登録する時間を選んでください</p>
   </div>
-  <table class="table-plan" id="plan">
+  <table class="table-hour">
     <tbody id="thead-hour"></tbody>
   </table>
   </div>

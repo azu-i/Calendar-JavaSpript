@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +13,7 @@
     <div class="container-text">
       <h2>予定登録</h2>
     </div>
-    <div class="plan-form">
+    <div class="add-form">
       <form action="plan_insert.php" method="post">
         <p>
           日程<br>

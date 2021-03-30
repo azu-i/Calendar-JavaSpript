@@ -6,27 +6,27 @@
   text-align: center;
 }
 
-.button-container-plan{
+.button-container{
   text-align: center;
 }
 
-.table-plan{
+.table-hour{
   border-collapse: collapse;
   width: 80%;
   text-align: center;
   margin: 0 auto;
 }
 
-.table-plan th,
-.table-plan td{
+.table-hour th,
+.table-hour td{
   border:2px solid #666666;
   text-align: center;
 }
-.table-plan th{
+.table-hour th{
   padding: 5px;
   background-color: #ddc9c6;
 }
-.table-plan td{
+.table-hour td{
    padding: 10px;
 }
 
