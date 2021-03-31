@@ -20,7 +20,12 @@ class Dao
 
   public function planInsert($date, $time, $plan_name)
   {
-    return $this->pdo->query("INSERT INTO `plan`(`date`, `time`, `plan_name`) VALUES('$date', '$time', '$plan_name')");
+    return $this->pdo->query("INSERT INTO `plan` (`date`, `time`, `plan_name`) VALUES('$date', '$time', '$plan_name')");
+  }
+
+  public function planDelete($id)
+  {
+    return $this->pdo->query("DELETE FROM `plan` WHERE id=$id"); 
   }
 
   public function findAll(): array

@@ -13,9 +13,9 @@
 <body>
   <div class="container-calendar">
     <div class="footer-container-calendar">
-      <label for="month">日付指定：</label>
-      <select id="year" onchange="jump()"></select>
-      <select id="month" onchange="jump()">
+      <label>日付指定：</label>
+      <select id="select-box" class="js-year" onchange="jump()"></select>
+      <select id="select-box" class="js-month" onchange="jump()">
         <option value=0>Jun</option>
         <option value=1>Feb</option>
         <option value=2>Mar</option>
@@ -35,8 +35,8 @@
     </div>
     <h4 id="monthAndYear"></h4>
     <div class="button-container-calendar">
-      <button id="previous" onclick="previous()">previous</button>
-      <button id="next" onclick="next()">next</button>
+      <button id="click-button" onclick="previous()">previous</button>
+      <button id="click-button" onclick="next()">next</button>
     </div>
     <table class="table-calendar" id="calendar">
       <thead id="thead-month"></thead>

@@ -2,10 +2,11 @@ window.addEventListener("load", function () {
   var today = new Date();
   var currentYear = today.getFullYear();
   var currentMonth = today.getMonth();
-  
+
   var createYear = generate_year_range(1980, 2080);
 
-  document.getElementById("year").innerHTML = createYear;
+
+  document.getElementsByClassName("js-year")[0].innerHTML = createYear;
 
   var days = ["Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat"];
 
@@ -37,8 +38,8 @@ function today() {
 }
 
 function next() {
-  var selectYear = document.getElementById("year");
-  var selectMonth = document.getElementById("month");
+  var selectYear = document.getElementsByClassName("js-year")[0];
+  var selectMonth = document.getElementsByClassName("js-month")[0];
   selectYear = parseInt(selectYear.value);
   selectMonth = parseInt(selectMonth.value);
   var currentYear = (selectMonth === 11) ? selectYear + 1 : selectYear;
@@ -47,8 +48,8 @@ function next() {
 }
 
 function previous() {
-  var selectYear = document.getElementById("year");
-  var selectMonth = document.getElementById("month");
+  var selectYear = document.getElementsByClassName("js-year")[0];
+  var selectMonth = document.getElementsByClassName("js-month")[0];
   selectYear = parseInt(selectYear.value);
   selectMonth = parseInt(selectMonth.value);
   var currentYear = (selectMonth === 0) ? selectYear - 1 : selectYear;
@@ -57,8 +58,8 @@ function previous() {
 }
 
 function jump() {
-  var selectYear = document.getElementById("year");
-  var selectMonth = document.getElementById("month");
+  var selectYear = document.getElementsByClassName("js-year")[0];
+  var selectMonth = document.getElementsByClassName("js-month")[0];
   currentYear = parseInt(selectYear.value);
   currentMonth = parseInt(selectMonth.value);
   showCalendar(currentMonth, currentYear);
@@ -66,8 +67,9 @@ function jump() {
 
 function showCalendar(month, year) {
   var today = new Date();
-  var selectYear = document.getElementById("year");
-  var selectMonth = document.getElementById("month");
+  lectYear = document.getElementsByClassName("js-year")[0];
+  var selectYear = document.getElementsByClassName("js-year")[0];
+  var selectMonth = document.getElementsByClassName("js-month")[0];
   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   var firstDay = (new Date(year, month)).getDay();
 
@@ -100,7 +102,7 @@ function showCalendar(month, year) {
         cell.setAttribute("data-month_name", months[month]);
         cell.className = "date-picker";
         var selectedMonth = month + 1;
-        cell.innerHTML = "<span><a href='hour_choice.php?selected_date=" + year + '/' + selectedMonth + '/' +date + "'>" + date + "</a></span>";
+        cell.innerHTML = "<span><a href='hour_choice.php?selected_date=" + year + '/' + selectedMonth + '/' + date + "'>" + date + "</a></span>";
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
           cell.className = "today";
         }
@@ -116,6 +118,6 @@ function showCalendar(month, year) {
 
 //月の日数
 function daysInMonth(iMonth, iYear) {
-  return  new Date(iYear, iMonth+1, 0).getDate();
+  return new Date(iYear, iMonth + 1, 0).getDate();
 }
 
