@@ -2,26 +2,26 @@
 
 class PlanName
 {
-  private $plan_name;
+  private $schedule_name;
 
-  public function __construct($plan_name)
+  public function __construct($schedule_name)
   {
     try {
-      if (strlen($plan_name) > 20) {
+      if (strlen($schedule_name) > 20) {
         throw new Exception('予定名は20文字以下で入力してください');
       }
-      if (empty($plan_name)) {
+      if (empty($schedule_name)) {
         throw new Exception('予定名を入力してください');
       }
     } catch (Exception $e) {
       echo $e->getMessage();
       die;
     }
-    $this->plan_name = $plan_name;
+    $this->schedule_name = $schedule_name;
   }
 
-  public function planName()
+  public function schedule_name()
   {
-    return $this->plan_name;
+    return $this->schedule_name;
   }
 }

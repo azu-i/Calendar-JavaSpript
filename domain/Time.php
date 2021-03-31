@@ -2,26 +2,23 @@
 
 class Time
 {
-  private $time;
+  private $hour;
 
-  public function __construct($time)
+  public function __construct($hour)
   {
     try {
-      if (!strptime($time, '%H:%i')) {
-        throw new Exception('日付はカレンダーから選択してください');
-      }
-      if (empty($time)) {
+      if (empty($hour)) {
         throw new Exception('時間を入力してください');
       }
     } catch (Exception $e) {
       echo $e->getMessage();
       die;
     }
-    $this->time = $time;
+    $this->hour = $hour;
   }
 
-  public function time()
+  public function hour()
   {
-    return $this->time;
+    return $this->hour;
   }
 }

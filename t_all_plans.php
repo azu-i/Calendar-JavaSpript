@@ -13,17 +13,17 @@
       <div class="row">
         <table class="table">
             <tr>
-              <th>予定名</th>
               <th>日程</th>
               <th>時間</th>
+              <th>予定名</th>
               <th></th>
             </tr>
           <tbody>
-            <?php foreach ($plans as $plan) { var_dump($plan);?>
+            <?php foreach ($all_plans as $all_plan) {?>
             <tr>
-              <th><?php echo $plan['plan_name']?></th>
-              <th><?php echo $plan['date'] ?></th>
-              <th><?php echo $plan['time']  ?></th>
+              <th><?php echo $all_plan['date'];?></th>
+              <th><?php echo $all_plan['time']; ?></th>
+              <th><?php echo $all_plan['plan_name'];  ?></th>
             </tr>
             <?php }; ?>
           </tbody>

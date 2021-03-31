@@ -2,8 +2,8 @@
 require_once 'domain/Dao.php';
 
 $dao = new Dao();
-$plans = $dao->findAll();
+$all_plans = $dao->findAll();
 
- header('Location: t_all_plans.php');
+require 't_all_plans.php';
 
 
