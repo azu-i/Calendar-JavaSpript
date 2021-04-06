@@ -11,4 +11,4 @@ $selected_hour = $_GET['selected_hour'];
 $hour = new Datetime($selected_hour. ":00");
 $insert_hour = $hour->format('H:i');
 
-require 't_plan_add.php';
+require 'view/plan_add.php';

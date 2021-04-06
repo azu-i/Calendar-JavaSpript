@@ -71,6 +71,8 @@ function showCalendar(month, year) {
   var selectYear = document.getElementsByClassName("js-year")[0];
   var selectMonth = document.getElementsByClassName("js-month")[0];
   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  //ToDo:クラスの別メソッドに↓メソッド名startDayかな？
+  //year, monthプロパティに
   var firstDay = (new Date(year, month)).getDay();
 
   tbl = document.getElementById("calendar-body");
@@ -121,3 +123,7 @@ function daysInMonth(iMonth, iYear) {
   return new Date(iYear, iMonth + 1, 0).getDate();
 }
 
+class Calendar
+{
+   
+}
