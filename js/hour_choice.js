@@ -4,9 +4,23 @@ window.addEventListener("load", function () {
 
   var hourHeader = "";
   for (hour in hours) {
-    hourHeader += "<tr><th class='table-hour-th'>" + hours[hour] + "<td><a href='plan_add.php?selected_hour=" + hour +"'>予定を入力</a></td></tr>";
+    hourChoice = new HourChoice(hour, hours);
+    hourHeader += hourChoice.htmlHourHeader();
   }
   hourHeader += "";
 
   document.getElementById("thead-hour").innerHTML = hourHeader;
 })
+
+class HourChoice
+{
+  constructor(hour, hours){
+    this.hour = hour;
+    this.hours = hours;
+  }
+  
+  htmlHourHeader()
+  {
+    return `<tr><th class='table-hour-th'> ${this.hours[this.hour]} <td><a href='/controllers/plan_add.php?selected_hour= ${this.hour}'>予定を入力</a></td></tr>`;
+  }
+}

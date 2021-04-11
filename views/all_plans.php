@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/all_plans.css">
+  <link rel="stylesheet" href="/css/all_plans.css">
   <title>予定一覧</title>
 </head>
 
@@ -22,12 +22,12 @@
         <tbody>
           <?php foreach ($all_plans as $all_plan) { ?>
             <tr>
-              <th><?php echo $all_plan['date']; ?></th>
-              <th><?php echo $all_plan['time']; ?></th>
-              <th><?php echo $all_plan['plan_name'];  ?></th>
+              <th><?= $all_plan['date']; ?></th>
+              <th><?= $all_plan['time']; ?></th>
+              <th><?= $all_plan['plan_name'];  ?></th>
               <th>
-                <form action="delete_plan.php" method="POST">
-                  <input type="hidden" name="id" value="<?php echo $all_plan['id'] ?>">
+                <form action="/controllers/delete_plan.php" method="POST">
+                  <input type="hidden" name="id" value="<?= $all_plan['id'] ?>">
                   <input type="submit" name="submit" value="削除">
                 </form>
               </th>

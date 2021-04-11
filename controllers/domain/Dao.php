@@ -36,6 +36,7 @@ class Dao
   {
     $st = $this->pdo()->query("SELECT * FROM plan");
     $plans = $st->fetchAll(PDO::FETCH_ASSOC);
+    
     return $plans;
   }
 }

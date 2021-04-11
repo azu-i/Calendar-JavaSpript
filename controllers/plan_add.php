@@ -3,6 +3,7 @@ session_start();
 
 //選択してる日にちは'Y-m-d'型に
 $selected_date = $_SESSION['selected_date'];
+
 $date = new DateTime($selected_date);
 $insert_date = $date->format('Y-m-d');
 
@@ -11,4 +12,4 @@ $selected_hour = $_GET['selected_hour'];
 $hour = new Datetime($selected_hour. ":00");
 $insert_hour = $hour->format('H:i');
 
-require 'view/plan_add.php';
+require (__DIR__ . '/../views/plan_add.php');

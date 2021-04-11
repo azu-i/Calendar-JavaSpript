@@ -1,8 +1,8 @@
 <?php
-require_once 'Plan.php';
-require_once 'Date.php';
-require_once 'Time.php';
-require_once 'PlanName.php';
+require_once (__DIR__ . '/Plan.php');
+require_once (__DIR__ . '/Date.php');
+require_once (__DIR__ . '/Time.php');
+require_once (__DIR__. '/PlanName.php');
 ini_set('display_errors', "On");
 
 class PlanFactory

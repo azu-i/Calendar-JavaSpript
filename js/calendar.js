@@ -12,7 +12,7 @@ window.addEventListener("load", function () {
 
   var dayHeader = "<tr>";
   for (day in days) {
-    dayHeader += "<th data-days='" + days[day] + "'>" + days[day] + "</th>";
+    dayHeader += `<th data-days= ${days[day]}  > ${days[day]}  </th>`;
   }
   dayHeader += "</tr>";
 
@@ -25,7 +25,7 @@ window.addEventListener("load", function () {
 function generate_year_range(start, end) {
   var years = "";
   for (var year = start; year <= end; year++) {
-    years += "<option value='" + year + "'>" + year + "</option>";
+    years += `<option value= ${year}  > ${year}  </option>`;
   }
   return years;
 }
@@ -73,13 +73,13 @@ function showCalendar(month, year) {
   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   //ToDo:クラスの別メソッドに↓メソッド名startDayかな？
   //year, monthプロパティに
-  var firstDay = (new Date(year, month)).getDay();
+  var startDay = (new Date(year, month)).getDay();
 
   tbl = document.getElementById("calendar-body");
 
   tbl.innerHTML = "";
 
-  monthAndYear.innerHTML = months[month] + " " + year;
+  monthAndYear.innerHTML = `${months[month]}  ${year}`;
   selectYear.value = year;
   selectMonth.value = month;
 
@@ -89,7 +89,7 @@ function showCalendar(month, year) {
     var row = document.createElement("tr");
 
     for (var j = 0; j < 7; j++) {
-      if (i === 0 && j < firstDay) {
+      if (i === 0 && j < startDay) {
         cell = document.createElement("td");
         cellText = document.createTextNode("");
         cell.appendChild(cellText);
@@ -104,7 +104,7 @@ function showCalendar(month, year) {
         cell.setAttribute("data-month_name", months[month]);
         cell.className = "date-picker";
         var selectedMonth = month + 1;
-        cell.innerHTML = "<span><a href='hour_choice.php?selected_date=" + year + '/' + selectedMonth + '/' + date + "'>" + date + "</a></span>";
+        cell.innerHTML = `<span><a href='/controllers/hour_choice.php?selected_date=${year}/${selectedMonth}/${date}'>${date}</a></span>`;
         if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
           cell.className = "today";
         }
@@ -125,5 +125,10 @@ function daysInMonth(iMonth, iYear) {
 
 class Calendar
 {
-   
+  constructor(month, year){
+    this.month = month;
+    this.year = year;
+  } 
+
+  
 }
