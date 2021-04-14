@@ -67,10 +67,12 @@ function jump() {
 
 function showCalendar(month, year) {
   var today = new Date();
-  lectYear = document.getElementsByClassName("js-year")[0];
   var selectYear = document.getElementsByClassName("js-year")[0];
   var selectMonth = document.getElementsByClassName("js-month")[0];
   var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  // calendar = new Calendar(month, months, year, selectYear, selectMonth);
+  // var table = calendar.createTable();
+  // return table;
   //ToDo:クラスの別メソッドに↓メソッド名startDayかな？
   //year, monthプロパティに
   var startDay = (new Date(year, month)).getDay();
@@ -123,12 +125,95 @@ function daysInMonth(iMonth, iYear) {
   return new Date(iYear, iMonth + 1, 0).getDate();
 }
 
-class Calendar
-{
-  constructor(month, year){
+class Calendar {
+  constructor(month, months, year, selectYear, selectMonth) {
     this.month = month;
+    this.months = months;
     this.year = year;
-  } 
+    this.selectYear = selectYear;
+    this.selectMonth = selectMonth;
+  }
 
-  
+  startDay() {
+    var startDay = (new Date(this.year, this.month)).getDay();
+    return startDay;
+  }
+
+  createTable() {
+    table = document.getElementById("calendar-body");
+    table.innerHTML = "";
+
+    monthAndYear.innerHTML = `${this.months[this.month]}  ${this.year}`;
+    this.selectYear.value = this.year;
+    this.selectMonth.value = this.month;
+
+    // startDay = this.startDay();
+    // creating all cells
+    // var date = 1;
+    // for (var i = 0; i < 6; i++) {
+    //   var row = document.createElement("tr");
+    //   for (var j = 0; j < 7; j++) {
+    //     if (i === 0 && j < startDay) {
+    //       cell = document.createElement("td");
+    //       cellText = document.createTextNode("");
+    //       cell.appendChild(cellText);
+    //       row.appendChild(cell);
+    //     } else if (date > daysInMonth(month, year)) {
+    //       break;
+    //     } else {
+    //       cell = document.createElement("td");
+    //       cell.setAttribute("data-date", date);
+    //       cell.setAttribute("data-month", month + 1);
+    //       cell.setAttribute("data-year", year);
+    //       cell.setAttribute("data-month_name", months[month]);
+    //       cell.className = "date-picker";
+    //       var selectedMonth = month + 1;
+    //       cell.innerHTML = `<span><a href='/controllers/hour_choice.php?selected_date=${year}/${selectedMonth}/${date}'>${date}</a></span>`;
+    //       if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+    //         cell.className = "today";
+    //       }
+    //       row.appendChild(cell);
+    //       date++;
+    //     }
+    //   }
+    // }
+    var row = this.createRow();
+    table.appendChild(row);
+    return table;
+  }
+
+  createRow() {
+    var today = new Date();
+    var startDay = this.startDay();
+    // creating all cells
+    var date = 1;
+    for (var i = 0; i < 6; i++) {
+      var row = document.createElement("tr");
+      for (var j = 0; j < 7; j++) {
+        if (i === 0 && j < startDay) {
+          cell = document.createElement("td");
+          cellText = document.createTextNode("");
+          cell.appendChild(cellText);
+          row.appendChild(cell);
+        } else if (date > daysInMonth(this.month, this.year)) {
+          break;
+        } else {
+          cell = document.createElement("td");
+          cell.setAttribute("data-date", date);
+          cell.setAttribute("data-month", this.month + 1);
+          cell.setAttribute("data-year", this.year);
+          cell.setAttribute("data-month_name", this.months[this.month]);
+          cell.className = "date-picker";
+          this.selectedMonth = this.month + 1;
+          cell.innerHTML = `<span><a href='/controllers/hour_choice.php?selected_date=${this.year}/${selectedMonth}/${date}'>${date}</a></span>`;
+          if (date === today.getDate() && this.year === today.getFullYear() && this.month === today.getMonth()) {
+            cell.className = "today";
+          }
+          row.appendChild(cell);
+          date++;
+        }
+      }
+    }
+    return row;
+  }
 }
