@@ -2,7 +2,7 @@ window.addEventListener("load", function () {
   var today = new Date();
   var currentYear = today.getFullYear();
   var currentMonth = today.getMonth();
-  var createYear = generate_year_range(1980, 2080);
+  var createYear = generate_year_range(1980, 2070);
 
   document.getElementsByClassName("js-year")[0].innerHTML = createYear;
 
