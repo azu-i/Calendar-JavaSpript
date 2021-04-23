@@ -9,4 +9,4 @@ $plan = PlanFactory::create($_POST['date'], $_POST['time'], $_POST['plan-name'])
 $dao = new Dao();
 $dao->planInsert($plan);
 
-header('Location: http://l-calendar.com/calendar.html');
+header('Location: http://l-calendar.com');

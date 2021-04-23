@@ -17,7 +17,7 @@ class HourChoice {
   htmlHourHeader() {
     var hourHeader = "";
     for (this.hour in this.hours) {
-      hourHeader += `<tr><th class='table-hour-th'> ${this.hours[this.hour]} <td><a href='/controllers/plan_add.php?selected_hour= ${this.hour}'>予定を入力</a></td></tr>`;
+      hourHeader += `<tr><th class='table-hour-th'> ${this.hours[this.hour]} <td><a href='/controllers/planAdd.php?selected_hour=${this.hour}'>予定を入力</a></td></tr>`;
     }
     hourHeader += "";
     return hourHeader;

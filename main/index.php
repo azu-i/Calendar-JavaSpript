@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 
 <head>
   <meta charset="UTF-8">
@@ -44,7 +44,7 @@
     </table>
   </div>
   <div class="link-plans">
-    <a href="/controllers/all_plans.php">予定一覧</a>
+    <a href="/allPlans">予定一覧</a>
   </div>
 </body>
 

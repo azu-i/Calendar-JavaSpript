@@ -75,6 +75,7 @@ function showCalendar(month, year) {
   monthAndYear.innerHTML = calendar.createMonthAndYearHTML();
 
   var table = calendar.createTable();
+  
 }
 
 function daysInMonth(iMonth, iYear) {
@@ -99,27 +100,25 @@ class Calendar {
     var startDay = (new Date(this.year, this.month)).getDay();;
     this.selectYear.value = this.year;
     this.selectMonth.value = this.month;
-    // creating all cells
+    
     var date = 1;
-    for (var i = 0; i < 6; i++) {
+    var weeks = 6;
+    var weekDays = 7;
+    for (var i = 0; i < weeks; i++) {
       var row = document.createElement("tr");
-      for (var j = 0; j < 7; j++) {
+      for (var j = 0; j < weekDays; j++) {
         if (i === 0 && j < startDay) {
-          cell = document.createElement("td");
-          cellText = document.createTextNode("");
+          var cell = document.createElement("td");
+          var cellText = document.createTextNode("");
           cell.appendChild(cellText);
           row.appendChild(cell);
         } else if (date > daysInMonth(this.month, this.year)) {
           break;
         } else {
           cell = document.createElement("td");
-          cell.setAttribute("data-date", date);
-          cell.setAttribute("data-month", this.month + 1);
-          cell.setAttribute("data-year", this.year);
-          cell.setAttribute("data-month_name", this.months[this.month]);
           cell.className = "date-picker";
           this.selectedMonth = this.month + 1;
-          cell.innerHTML = `<span><a href='/controllers/hour_choice.php?selected_date=${this.year}/${this.selectedMonth}/${date}'>${date}</a></span>`;
+          cell.innerHTML = this.cellHtml(this.year, this.selectedMonth , date);
           if (date === today.getDate() && this.year === today.getFullYear() && this.month === today.getMonth()) {
             cell.className = "today";
           }
@@ -130,6 +129,12 @@ class Calendar {
       tbl.appendChild(row);
     }
     return tbl;
+  }
+
+  cellHtml(year, selectedMonth, date)
+  {
+    var cellhtml = `<span><a href='/controllers/hourChoice.php?selected_date=${year}/${selectedMonth}/${date}'>${date}</a></span>`;
+    return cellhtml;
   }
 }
 

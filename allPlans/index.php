@@ -1,3 +1,6 @@
+<?php
+require_once (__DIR__ . '/../controllers/all_plans.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 

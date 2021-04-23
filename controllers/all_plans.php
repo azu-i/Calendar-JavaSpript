@@ -1,9 +1,10 @@
 <?php 
-require_once (__DIR__ . '/domain/Dao.php');
+require (__DIR__ . '/domain/Dao.php');
+ini_set('display_errors', "On");
 
 $dao = new Dao();
 $all_plans = $dao->findAll();
 
-require (__DIR__ . '/../views/all_plans.php');
+require_once (__DIR__ . '/../allPlans/index.php');
 
 
