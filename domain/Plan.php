@@ -25,6 +25,6 @@ class Plan
 
   public function planName()
   {
-    return $this->plan_name->schedule_name();
+    return $this->plan_name->scheduleName();
   }
 }

@@ -1,7 +1,6 @@
 <?php
 session_start();
-$selected_date = $_GET['selected_date'];
+$selectedDate = $_GET['selectedDate'];
 
-$_SESSION['selected_date'] = $selected_date;
-// require (__DIR__ . '/../views/hour_choice.
+$_SESSION['selectedDate'] = $selectedDate;
 require_once (__DIR__ . '/../hourChoice/index.php');

@@ -17,6 +17,11 @@ th, td {
   padding: 6px 16px;
   border-bottom: 2px solid #bbb;
 }
+
+.list-plans{
+  padding: 80px 15px 15px 15px;
+}
+
 .goods {
   font-weight: bold;
 }

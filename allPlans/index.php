@@ -1,5 +1,6 @@
 <?php
-require_once (__DIR__ . '/../controllers/all_plans.php');
+require_once (__DIR__ . '/../controllers/allPlans.php');
+require_once (__DIR__ . '/../template/header.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +9,7 @@ require_once (__DIR__ . '/../controllers/all_plans.php');
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="/css/all_plans.css">
+  <link rel="stylesheet" href="/css/allPlans.css">
   <title>予定一覧</title>
 </head>
 
@@ -23,14 +24,14 @@ require_once (__DIR__ . '/../controllers/all_plans.php');
           <th></th>
         </tr>
         <tbody>
-          <?php foreach ($all_plans as $all_plan) { ?>
+          <?php foreach ($allPlans as $allPlan) { ?>
             <tr>
-              <th><?= $all_plan['date']; ?></th>
-              <th><?= $all_plan['time']; ?></th>
-              <th><?= $all_plan['plan_name'];  ?></th>
+              <th><?= $allPlan['date']; ?></th>
+              <th><?= $allPlan['time']; ?></th>
+              <th><?= $allPlan['plan_name'];  ?></th>
               <th>
-                <form action="/controllers/delete_plan.php" method="POST">
-                  <input type="hidden" name="id" value="<?= $all_plan['id'] ?>">
+                <form action="/controllers/deletePlan.php" method="POST">
+                  <input type="hidden" name="id" value="<?= $allPlan['id'] ?>">
                   <input type="submit" name="submit" value="削除">
                 </form>
               </th>
