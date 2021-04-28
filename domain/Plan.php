@@ -4,13 +4,13 @@ class Plan
 {
   private $date;
   private $time;
-  private $plan_name;
+  private $planName;
 
-  public function __construct(Date $date, Time $time, PlanName $plan_name)
+  public function __construct(Date $date, Time $time, PlanName $planName)
   {
     $this->date = $date;
     $this->time = $time;
-    $this->plan_name = $plan_name;
+    $this->planName = $planName;
   }
 
   public function date()
@@ -25,6 +25,6 @@ class Plan
 
   public function planName()
   {
-    return $this->plan_name->scheduleName();
+    return $this->planName->scheduleName();
   }
 }

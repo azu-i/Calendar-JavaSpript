@@ -2,7 +2,7 @@
 
 class PlanName
 {
-  private $schedule_name;
+  private $scheduleName;
 
   public function __construct($scheduleName)
   {

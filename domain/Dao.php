@@ -22,14 +22,14 @@ class Dao
   {
     $date = htmlspecialchars($plan->date(), ENT_QUOTES, 'UTF-8');
     $time = htmlspecialchars($plan->time(), ENT_QUOTES, 'UTF-8');
-    $plan_name = htmlspecialchars($plan->planName(), ENT_QUOTES, 'UTF-8');;
-    return $this->pdo->query("INSERT INTO `plan` (`date`, `time`, `plan_name`) VALUES('$date', '$time', '$plan_name')");
+    $planName = htmlspecialchars($plan->planName(), ENT_QUOTES, 'UTF-8');;
+    return $this->pdo->query("INSERT INTO `plan` (`date`, `time`, `plan_name`) VALUES('$date', '$time', '$planName')");
   }
 
   public function planDelete(int $id)
   {
-    $id_delete = htmlspecialchars($id, ENT_QUOTES, 'UTF-8');
-    return $this->pdo->query("DELETE FROM `plan` WHERE id=$id_delete"); 
+    $idDelete = htmlspecialchars($id, ENT_QUOTES, 'UTF-8');
+    return $this->pdo->query("DELETE FROM `plan` WHERE id=$idDelete"); 
   }
 
   public function findAll(): array

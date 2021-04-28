@@ -7,12 +7,12 @@ ini_set('display_errors', "On");
 
 class PlanFactory
 {
-  public static function create(string $date, string $time, string $plan_name): Plan
+  public static function create(string $date, string $time, string $planName): Plan
   {
     return new Plan(
       new Date($date),
       new Time($time),
-      new PlanName($plan_name)
+      new PlanName($planName)
     );
   }
 }
