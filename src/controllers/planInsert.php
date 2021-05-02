@@ -7,7 +7,7 @@ ini_set('display_errors', "On");
 use app\domain\PlanFactory;
 use app\domain\Dao;
 
-class Insert
+class PlanInsert
 {
   public function __construct(string $date, string $time, string $planName)
   {

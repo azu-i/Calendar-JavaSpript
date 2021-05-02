@@ -9,12 +9,12 @@ class PlanName
   {
     try {
       if (strlen($scheduleName) > 20) {
-        throw new Exception('予定名は20文字以下で入力してください');
+        throw new \Exception('予定名は20文字以下で入力してください');
       }
       if (empty($scheduleName)) {
-        throw new Exception('予定名を入力してください');
+        throw new \Exception('予定名を入力してください');
       }
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
       echo $e->getMessage();
       die;
     }

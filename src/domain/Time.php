@@ -10,9 +10,9 @@ class Time
   {
     try {
       if (empty($hour)) {
-        throw new Exception('時間を入力してください');
+        throw new \Exception('時間を入力してください');
       }
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
       echo $e->getMessage();
       die;
     }

@@ -12,7 +12,7 @@ class Dao
 
   public function __construct()
   {
-    $this->pdo = new PDO(self::DSN, self::USER, self::PASS);
+    $this->pdo = new \PDO(self::DSN, self::USER, self::PASS);
   }
 
   public function pdo()
@@ -37,7 +37,7 @@ class Dao
   public function findAll(): array
   {
     $st = $this->pdo()->query("SELECT * FROM plan");
-    $plans = $st->fetchAll(PDO::FETCH_ASSOC);
+    $plans = $st->fetchAll(\PDO::FETCH_ASSOC);
     
     return $plans;
   }
