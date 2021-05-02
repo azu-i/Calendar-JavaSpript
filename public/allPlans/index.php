@@ -1,6 +1,9 @@
 <?php
-require_once (__DIR__ . '/../controllers/allPlans.php');
 require_once (__DIR__ . '/../template/header.php');
+require_once (__DIR__ . '/../../vendor/autoload.php');
+use app\controllers\allPlans;
+$allPlan = new allPlans();
+$allPlans = $allPlan->allPlans();
 ?>
 <!DOCTYPE html>
 <html lang="en">

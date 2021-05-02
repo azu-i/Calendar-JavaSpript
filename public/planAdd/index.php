@@ -1,5 +1,14 @@
 <?php
 require_once(__DIR__ . '/../template/header.php');
+session_start();
+//選択してる日にちは'Y-m-d'型に
+$selectedDate = $_SESSION['selectedDate'];
+$date = new DateTime($selectedDate);
+$insertDate = $date->format('Y-m-d');
+//時間は'H:i'型にする
+$selectedHour = $_GET['selectedHour'];
+$hour = new Datetime($selectedHour . ":00");
+$insertHour = $hour->format('H:i');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,7 +27,7 @@ require_once(__DIR__ . '/../template/header.php');
       <h2>予定登録</h2>
     </div>
     <div class="add-form">
-      <form action="/controllers/planInsert.php" method="post">
+      <form action="/planInsert" method="get">
         <p>
           日程<br>
           <input type="date" name="date" value="<?= $insertDate ?>">

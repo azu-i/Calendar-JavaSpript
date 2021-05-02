@@ -1,0 +1,17 @@
+{
+    "name": "azu/calendar",
+    "authors": [
+        {
+            "name": "Azusa",
+            "email": "ef.qkl.033v.0@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "src/"
+        }
+    }
+}
+
+

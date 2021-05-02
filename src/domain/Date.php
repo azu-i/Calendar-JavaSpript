@@ -1,4 +1,6 @@
 <?php
+namespace app\domain;
+require_once (__DIR__ . '/../../vendor/autoload.php');
 
 class Date
 {

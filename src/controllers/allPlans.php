@@ -1,10 +1,19 @@
-<?php 
-require (__DIR__ . '/../domain/Dao.php');
+<?php
+
+namespace app\controllers;
+
+require_once(__DIR__ . '/../../vendor/autoload.php');
+
+use app\domain\Dao;
+
 ini_set('display_errors', "On");
 
-$dao = new Dao();
-$allPlans = $dao->findAll();
-
-
-
-
+class allPlans
+{
+  public function allPlans()
+  {
+    $dao = new Dao();
+    $allPlans = $dao->findAll();
+    return $allPlans;
+  }
+}

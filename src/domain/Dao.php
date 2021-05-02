@@ -1,4 +1,6 @@
 <?php
+namespace app\domain;
+
 ini_set('display_errors', "On");
 class Dao
 {

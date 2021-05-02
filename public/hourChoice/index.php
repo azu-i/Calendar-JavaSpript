@@ -1,5 +1,10 @@
 <?php
 require_once(__DIR__ . '/../template/header.php');
+session_start();
+$selectedDate = $_GET['selectedDate'];
+
+$_SESSION['selectedDate'] = $selectedDate;
+require_once (__DIR__ . '/../hourChoice/index.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,9 +28,6 @@ require_once(__DIR__ . '/../template/header.php');
   <table class="table-hour">
     <tbody id="thead-hour"></tbody>
   </table>
-  </div>
-  <div class="link-calendar">
-    <a href="/">カレンダーへ戻る</a>
   </div>
 </body>
 

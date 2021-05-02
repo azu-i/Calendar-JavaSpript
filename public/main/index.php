@@ -45,9 +45,6 @@ require_once (__DIR__ . '/../template/header.php')
     <tbody id="calendar-body"></tbody>
   </table>
 </div>
-<div class="link-plans">
-  <a href="/allPlans">予定一覧</a>
-</div>
 </body>
 
 </html>
