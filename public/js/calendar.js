@@ -133,7 +133,7 @@ class Calendar {
 
   cellHtml(year, selectedMonth, date)
   {
-    var cellhtml = `<span><a href='/controllers/hourChoice.php?selectedDate=${year}/${selectedMonth}/${date}'>${date}</a></span>`;
+    var cellhtml = `<span><a href='/hourChoice/?selectedDate=${year}/${selectedMonth}/${date}'>${date}</a></span>`;
     return cellhtml;
   }
 }

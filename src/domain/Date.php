@@ -1,4 +1,6 @@
 <?php
+namespace app\domain;
+require_once (__DIR__ . '/../../vendor/autoload.php');
 
 class Date
 {
@@ -8,13 +10,14 @@ class Date
   {
     try {
       if (empty($day)) {
-        throw new Exception('時間を入力してください');
+        throw new \Exception('時間を入力してください');
       }
-    } catch (Exception $e) {
+    } catch (\Exception $e) {
       echo $e->getMessage();
       die;
     }
     $this->day = $day;
+
   }
 
   public function day(){

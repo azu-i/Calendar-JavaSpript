@@ -1,8 +1,10 @@
 <?php
-require_once (__DIR__ . '/Plan.php');
-require_once (__DIR__ . '/Date.php');
-require_once (__DIR__ . '/Time.php');
-require_once (__DIR__. '/PlanName.php');
+// require_once (__DIR__ . '/Plan.php');
+// require_once (__DIR__ . '/Date.php');
+// require_once (__DIR__ . '/Time.php');
+// require_once (__DIR__. '/PlanName.php');
+namespace app\domain;
+require_once (__DIR__ . '/../../vendor/autoload.php');
 ini_set('display_errors', "On");
 
 class PlanFactory

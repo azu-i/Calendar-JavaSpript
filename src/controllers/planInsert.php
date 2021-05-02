@@ -1,12 +1,25 @@
 <?php
-require_once (__DIR__ . '/../domain/Dao.php');
-require_once (__DIR__ . '/../domain/PlanFactory.php');
+namespace app\controllers;
+
+require_once(__DIR__ . '/../../vendor/autoload.php');
 ini_set('display_errors', "On");
 
+use app\domain\PlanFactory;
+use app\domain\Dao;
 
-$plan = PlanFactory::create($_POST['date'], $_POST['time'], $_POST['plan-name']);
+class PlanInsert
+{
+  public function __construct(string $date, string $time, string $planName)
+  {
+    $this->date = $date;
+    $this->time = $time;
+    $this->planName = $planName;
+  }
 
-$dao = new Dao();
-$dao->planInsert($plan);
-
-header('Location: http://l-calendar.com');
+  public function planInsert(): void
+  {
+    $plan = PlanFactory::create($this->date, $this->time, $this->planName);
+    $dao = new Dao();
+    $dao->planInsert($plan);
+  }
+}
